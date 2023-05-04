@@ -111,7 +111,20 @@ class board:
             self.board[x-2:x+3,y-3] = 1
         return True
     
-    def display(self):
+    def shoot(self, x, y):
+        if self.board[x][y] < 3:
+            self.board[x][y] += 3
+            if self.board[x][y] == 5:
+                self.num_of_aero -= 1
+            return True
+        else:
+            return False
+    
+    def display_all(self):
         print("The board of player %d is"%self.index)
         print(self.board)
-        # numbers should be transformed to letter, to be fixed
+    
+    def display_shoot(self):
+        print("The shootboard of player %d is"%self.index)
+        shoot_board = np.where(self.board < 3, 0, self.board)
+        print(shoot_board)

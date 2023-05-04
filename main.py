@@ -1,8 +1,6 @@
-import board
+import game
 
-a = [board.board() for i in range(2)]
-a[0].set_small_aero(6,6,0)
-a[0].set_big_aero(13,13,0)
-a[0].display()
-# for i in board.board.list_of_board:
-#     i.display()
+print("Welcome to play AirShoot, by EDGE_qy.")
+mode = int(input("Please select gamemode.\n0 for PVP mode."))
+new_game = game.game(mode)
+new_game.play()
